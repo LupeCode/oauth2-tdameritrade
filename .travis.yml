@@ -1,0 +1,21 @@
+language: php
+dist: xenial
+os:
+  - linux
+php:
+  - 7.3
+  - 7.4
+  - 8.0
+jobs:
+  include:
+    - php: 7.3
+      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
+before_script:
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
+  - travis_retry composer self-update
+  - travis_retry composer update --no-interaction --prefer-source --dev
+  - travis_retry phpenv rehash
+after_success:
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r build/coverage/clover.xml
+script:
+  - ./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover

@@ -35,6 +35,7 @@ nbproject
 #############################
 .*
 !/.gitignore
+!/.travis.yml
 
 # repo specific #
 #################
