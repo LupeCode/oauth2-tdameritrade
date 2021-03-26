@@ -11,11 +11,12 @@ jobs:
     - php: 7.3
       env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 before_script:
+  - export XDEBUG_MODE=coverage
   - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
   - travis_retry composer self-update
   - travis_retry composer update --no-interaction --prefer-source --dev
   - travis_retry phpenv rehash
-after_success:
-  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r build/coverage/clover.xml
 script:
   - ./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+after_success:
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r build/coverage/clover.xml
