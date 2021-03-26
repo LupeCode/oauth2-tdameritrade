@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+>
+    <logging>
+        <junit outputFile="build/junit/junit.xml"/>
+        <teamcity outputFile="build/teamcity/teamcity.txt"/>
+        <testdoxHtml outputFile="build/testdoxHtml/testdox.html"/>
+        <testdoxText outputFile="build/testdoxText/testdox.txt"/>
+        <testdoxXml outputFile="build/testdoxXml/testdox.xml"/>
+        <text outputFile="build/text/logfile.txt"/>
+    </logging>
+    <coverage cacheDirectory="build/coverage/cache"
+              includeUncoveredFiles="true"
+              processUncoveredFiles="true"
+              pathCoverage="false"
+              ignoreDeprecatedCodeUnits="true"
+              disableCodeCoverageIgnore="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <report>
+            <clover outputFile="build/coverage/clover.xml"/>
+            <crap4j outputFile="build/coverage/crap4j.xml" threshold="50"/>
+            <html outputDirectory="build/coverage/html-coverage" lowUpperBound="50" highLowerBound="90"/>
+            <php outputFile="build/coverage/coverage.php"/>
+            <text outputFile="build/coverage/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+            <xml outputDirectory="build/coverage/xml-coverage"/>
+        </report>
+    </coverage>
+    <testsuites>
+        <testsuite name="Package Test Suite">
+            <directory suffix=".php">tests/src/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

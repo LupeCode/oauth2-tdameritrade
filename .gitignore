@@ -39,3 +39,4 @@ nbproject
 # repo specific #
 #################
 vendor/
+build/
