@@ -17,6 +17,6 @@ before_script:
   - travis_retry composer update --no-interaction --prefer-source --dev
   - travis_retry phpenv rehash
 script:
-  - ./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - ./vendor/bin/phpunit --configuration ./phpunit.xml
 after_success:
-  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r build/coverage/clover.xml
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r ./build/coverage/clover.xml
