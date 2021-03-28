@@ -1,7 +1,7 @@
 {
   "name": "lupecode/oauth2-tdameritrade",
   "description": "TD Ameritrade OAuth 2.0 Client Provider for The PHP League OAuth2-Client.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "library",
   "license": "MIT",
   "authors": [
