@@ -32,7 +32,7 @@ class TDAmeritradeTest extends TestCase
         parent::tearDown();
     }
 
-    public function testAuthorizationUrl()
+    public function testAuthorizationUrl(): void
     {
         $url = $this->provider->getAuthorizationUrl();
         $uri = parse_url($url);
@@ -47,7 +47,7 @@ class TDAmeritradeTest extends TestCase
         self::assertNotNull($this->provider->getState());
     }
 
-    public function testScopes()
+    public function testScopes(): void
     {
         $scopeSeparator = ',';
         $options = ['scope' => [uniqid(), uniqid()]];
@@ -57,7 +57,7 @@ class TDAmeritradeTest extends TestCase
         self::assertStringContainsString($encodedScope, $url);
     }
 
-    public function testGetAuthorizationUrl()
+    public function testGetAuthorizationUrl(): void
     {
         $url = $this->provider->getAuthorizationUrl();
         $uri = parse_url($url);
@@ -65,7 +65,7 @@ class TDAmeritradeTest extends TestCase
         self::assertEquals('/auth', $uri['path']);
     }
 
-    public function testGetBaseAccessTokenUrl()
+    public function testGetBaseAccessTokenUrl(): void
     {
         $params = [];
 
@@ -75,7 +75,7 @@ class TDAmeritradeTest extends TestCase
         self::assertEquals('/v1/oauth2/token', $uri['path']);
     }
 
-    public function testGetAccessToken()
+    public function testGetAccessToken(): void
     {
         $response = m::mock(ResponseInterface::class);
         $response->shouldReceive('getBody')->andReturn('{"access_token":"mock_access_token", "scope":"scopeA,scopeB", "token_type":"bearer"}');
@@ -94,7 +94,7 @@ class TDAmeritradeTest extends TestCase
         self::assertNull($token->getResourceOwnerId());
     }
 
-    public function testUserData()
+    public function testUserData(): void
     {
         $userId = rand(1000, 9999);
 
@@ -118,11 +118,11 @@ class TDAmeritradeTest extends TestCase
         $token = $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
         $user = $this->provider->getResourceOwner($token);
 
-        self::assertEquals($userId, $user->getId());
+        self::assertEquals($userId, $user->getUserId());
         self::assertEquals($userId, $user->toArray()['userId']);
     }
 
-    public function testExceptionThrownWhenErrorObjectReceived()
+    public function testExceptionThrownWhenErrorObjectReceived(): void
     {
         $this->expectException(IdentityProviderException::class);
         $status = rand(400, 600);
@@ -140,7 +140,7 @@ class TDAmeritradeTest extends TestCase
         $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
     }
 
-    public function testExceptionThrownWhenOAuthErrorReceived()
+    public function testExceptionThrownWhenOAuthErrorReceived(): void
     {
         $this->expectException(IdentityProviderException::class);
         $status = 200;

@@ -6,10 +6,6 @@ php:
   - 7.3
   - 7.4
   - 8.0
-jobs:
-  include:
-    - php: 7.3
-      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 before_script:
   - export XDEBUG_MODE=coverage
   - bash <(curl -Ls https://coverage.codacy.com/get.sh) download
