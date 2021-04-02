@@ -1,6 +1,6 @@
 # TD Ameritrade Provider for OAuth 2.0 Client
 
-This package provides Github OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
+This package provides TD Ameritrade OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
 [![Build Status](https://travis-ci.com/LupeCode/oauth2-tdameritrade.svg?branch=primary)](https://travis-ci.com/LupeCode/oauth2-tdameritrade)
 
