@@ -3,6 +3,8 @@
 This package provides TD Ameritrade OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
 [![Build Status](https://travis-ci.com/LupeCode/oauth2-tdameritrade.svg?branch=primary)](https://travis-ci.com/LupeCode/oauth2-tdameritrade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2ac5ccbd192a45b3828b04602dba3354)](https://www.codacy.com/gh/LupeCode/oauth2-tdameritrade/dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/2ac5ccbd192a45b3828b04602dba3354)](https://www.codacy.com/gh/LupeCode/oauth2-tdameritrade/dashboard)
 
 ## Installation
 
@@ -20,7 +22,7 @@ Usage is the same as The League's OAuth client, using `\LupeCode\OAuth2\Client\P
 
 ```php
 $provider = new LupeCode\OAuth2\Client\Provider\TDAmeritrade([
-    'clientId'          => '{github-client-id}',
+    'clientId'          => '{tdameritrade-client-id}',
     'redirectUri'       => 'https://example.com/callback-url',
 ]);
 
@@ -64,7 +66,7 @@ if (!isset($_GET['code'])) {
 
 ### Managing Scopes
 
-When creating your Github authorization URL, you can specify the state and scopes your application may authorize.
+When creating your TD Ameritrade authorization URL, you can specify the state and scopes your application may authorize.
 
 ```php
 $options = [
@@ -99,4 +101,4 @@ Please see [CONTRIBUTING](https://github.com/LupeCode/oauth2-tdameritrade/blob/m
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/thephpleague/oauth2-github/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/LupeCode/oauth2-tdameritrade/blob/master/LICENSE) for more information.
