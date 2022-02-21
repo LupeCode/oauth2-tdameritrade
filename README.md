@@ -11,7 +11,7 @@ This package provides TD Ameritrade OAuth 2.0 support for the PHP League's [OAut
 To install, use composer:
 
 ```
-composer require league/oauth2-github
+composer require lupecode/oauth2-tdameritrade 
 ```
 
 ## Usage
